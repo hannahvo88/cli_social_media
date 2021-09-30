@@ -34,14 +34,15 @@ except mariadb.IntergrityError:
 except:
     print("Opps! Somthing went wrong")
 
-    if loginToken == username:
+if loginToken == user_password:
+    while True:
         print("Please select your option: ")
         print("Enter a new exploit. Press 1")
         print("See all of your exploits. Press 2")
         print("See all other exploits by everyone. Press 3")
         print("Exit the application. Press 4")
         user_action = input ()
-    while True:
+    
         try:
             cursor.execute("SELECT id FROM hackers WHERE alias=?", [username])
             loggin_user = cursor.fetchone()
